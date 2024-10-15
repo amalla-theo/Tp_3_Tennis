@@ -2,7 +2,7 @@ import clavier.In;
 
 import java.lang.runtime.SwitchBootstraps;
 
-public class Main {
+public class Maintest {
     public static void main(String[] args) {
 
         int iClassement = 0;
@@ -19,8 +19,7 @@ public class Main {
         iClassement = In.readInteger();
 
 
-
-        final int NC = 1, _40 = 2, _30_5 = 3, _30_4 = 4, _30_3 = 5, _30_2 = 6, _30_1 = 7, _30 = 8,_15_5 = 9,_15_4 = 10;
+        final int NC = 1, _40 = 2, _30_5 = 3, _30_4 = 4, _30_3 = 5, _30_2 = 6, _30_1 = 7, _30 = 8, _15_5 = 9, _15_4 = 10;
 
         switch (iClassement) {
             case 1:
@@ -56,7 +55,7 @@ public class Main {
         }
 
 
-        if (sClassement.equals("NC") || sClassement.equals("40") || sClassement.equals("30_5") || sClassement.equals("30_4")){
+        if (sClassement.equals("NC") || sClassement.equals("40") || sClassement.equals("30_5") || sClassement.equals("30_4")) {
             iVictoiresPEC = 5;
         } else if (sClassement.equals("30_3") || sClassement.equals("30_2") || sClassement.equals("30_1") || sClassement.equals("30_1") || sClassement.equals("15_5") || sClassement.equals("15_4")) {
             iVictoiresPEC = 6;
@@ -70,43 +69,48 @@ public class Main {
 
         System.out.println("Le nombre de victoire pris en compte est de: " + iVictoiresPEC + "\n");
 
-        for (int i = 1; i <= iVictoiresPEC; i++){
-            System.out.println("(1)Deux échelons au dessus et plus\n(2)Un échelon au dessus\n(3)Echelon égal\n(4)Un échelon en dessous\n(5)Deux échellons en dessous\n(6)Tois échelons en dessous\n(7)Quattres échelons en dessous et plus\n");
-            System.out.println("Veuillez saisir le classement de la victoire n° " + i);
+        for (int i = 1; i <= iVictoiresPEC; i++) {
+            System.out.println("(1)NC (2)40 (3)30_5 (4)30_4 (5)30_3 (6)30_2 (7)30_1 (8)30 (9)15_5 (10)15_4\n");
+            System.out.println("Veuillez saisir le classement de votre adversaire n° " + i);
             iClassement = In.readInteger();
 
-            switch (iClassement) {
+
+            switch (iClassement) {  //Penser à faire le calcul pour trouver la différence de classement
                 case 1:
-                    iPoints = 150;
+                    sClassement = "NC";
                     break;
                 case 2:
-                    iPoints = 100;
+                    sClassement = "40";
                     break;
                 case 3:
-                    iPoints = 50;
+                    sClassement = "30_5";
                     break;
                 case 4:
-                    iPoints = 30;
+                    sClassement = "30_4";
                     break;
                 case 5:
-                    iPoints = 20;
+                    sClassement = "30_3";
                     break;
                 case 6:
-                    iPoints = 15;
+                    sClassement = "30_2";
                     break;
                 case 7:
-                    iPoints = 0;
+                    sClassement = "30_1";
                     break;
-                default:
-                    System.out.println("Veuillez saisir un chiffre valide");
+                case 8:
+                    sClassement = "30";
+                    break;
+                case 9:
+                    sClassement = "15_5";
+                    break;
+                case 10:
+                    sClassement = "15_4";
                     break;
             }
+
             iPointsTotal = iPointsTotal + iPoints;
             System.out.println(iPoints);
             System.out.println(iPointsTotal);
-            }
         }
-
-
-
     }
+}
