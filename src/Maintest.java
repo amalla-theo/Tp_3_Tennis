@@ -5,7 +5,8 @@ import java.lang.runtime.SwitchBootstraps;
 public class Maintest {
     public static void main(String[] args) {
 
-        int iClassement = 0;
+        int iClassementJoueur = 0;
+        int iClassementAdversaire = 0;
         int iVictoiresPEC = 0;
         int iVictoires = 0;
         int iVictoiresMax = 0;
@@ -16,12 +17,12 @@ public class Maintest {
 
         System.out.println("(1)NC (2)40 (3)30_5 (4)30_4 (5)30_3 (6)30_2 (7)30_1 (8)30 (9)15_5 (10)15_4");
         System.out.println("\nVeuillez saisir votre classement: ");
-        iClassement = In.readInteger();
+        iClassementJoueur = In.readInteger();
 
 
         final int NC = 1, _40 = 2, _30_5 = 3, _30_4 = 4, _30_3 = 5, _30_2 = 6, _30_1 = 7, _30 = 8, _15_5 = 9, _15_4 = 10;
 
-        switch (iClassement) {
+        switch (iClassementJoueur) {
             case 1:
                 sClassement = "NC";
                 break;
@@ -72,10 +73,10 @@ public class Maintest {
         for (int i = 1; i <= iVictoiresPEC; i++) {
             System.out.println("(1)NC (2)40 (3)30_5 (4)30_4 (5)30_3 (6)30_2 (7)30_1 (8)30 (9)15_5 (10)15_4\n");
             System.out.println("Veuillez saisir le classement de votre adversaire n° " + i);
-            iClassement = In.readInteger();
+            iClassementAdversaire = In.readInteger();
 
 
-            switch (iClassement) {  //Penser à faire le calcul pour trouver la différence de classement
+            switch (iClassementAdversaire) {  //Penser à faire le calcul pour trouver la différence de classement
                 case 1:
                     sClassement = "NC";
                     break;
@@ -107,6 +108,8 @@ public class Maintest {
                     sClassement = "15_4";
                     break;
             }
+
+
 
             iPointsTotal = iPointsTotal + iPoints;
             System.out.println(iPoints);
