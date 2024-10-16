@@ -7,6 +7,7 @@ public class Maintest {
 
         int iClassementJoueur = 0;
         int iClassementAdversaire = 0;
+        int iDifferenceClassement = 0;
         int iVictoiresPEC = 0;
         int iVictoires = 0;
         int iVictoiresMax = 0;
@@ -110,10 +111,37 @@ public class Maintest {
             }
 
 
+            iDifferenceClassement = iClassementAdversaire - iClassementJoueur;
+
+            switch (iDifferenceClassement) { //remplacer par un if
+                case 2:
+                    iPoints = 150;
+                    break;
+                case 1:
+                    iPoints = 100;
+                    break;
+                case 0:
+                    iPoints = 50;
+                    break;
+                case -1:
+                    iPoints = 30;
+                    break;
+                case -2:
+                    iPoints = 20;
+                    break;
+                case -3:
+                    iPoints = 15;
+                    break;
+                case -4:
+                    iPoints = 0;
+                    break;
+                default:
+                    System.out.println("Veuillez saisir un chiffre valide");
+                    break;
+            }
 
             iPointsTotal = iPointsTotal + iPoints;
-            System.out.println(iPoints);
-            System.out.println(iPointsTotal);
         }
+        System.out.println("Nombre de points total: " + iPointsTotal);
     }
 }
