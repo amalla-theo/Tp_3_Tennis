@@ -11,6 +11,8 @@ public class V0 {
         int iVictoires = 0;
         int iPoints = 0;
         int iPointsTotal = 0;
+        int iMontee = 0;
+        int iDescente = 0;
         String sClassement = "0";
 
         System.out.println("(1)NC (2)40 (3)30_5 (4)30_4 (5)30_3 (6)30_2 (7)30_1 (8)30 (9)15_5 (10)15_4");
@@ -24,42 +26,61 @@ public class V0 {
             case 1:
                 sClassement = "NC";
                 iCapitalDepart = 0;
+                iMontee = 50;
                 break;
             case 2:
                 sClassement = "40";
                 iCapitalDepart = 2;
+                iMontee = 80;
+                iDescente = 30;
                 break;
             case 3:
                 sClassement = "30_5";
                 iCapitalDepart = 5;
+                iMontee = 150;
+                iDescente = 50;
                 break;
             case 4:
                 sClassement = "30_4";
                 iCapitalDepart = 10;
+                iMontee = 260;
+                iDescente = 90;
                 break;
             case 5:
                 sClassement = "30_3";
                 iCapitalDepart = 20;
+                iMontee = 340;
+                iDescente = 145;
                 break;
             case 6:
                 sClassement = "30_2";
                 iCapitalDepart = 30;
+                iMontee = 410;
+                iDescente = 205;
                 break;
             case 7:
                 sClassement = "30_1";
                 iCapitalDepart = 50;
+                iMontee = 480;
+                iDescente = 245;
                 break;
             case 8:
                 sClassement = "30";
                 iCapitalDepart = 80;
+                iMontee = 510;
+                iDescente = 290;
                 break;
             case 9:
                 sClassement = "15_5";
                 iCapitalDepart = 120;
+                iMontee = 580;
+                iDescente = 325;
                 break;
             case 10:
                 sClassement = "15_4";
                 iCapitalDepart = 160;
+                iMontee = 660;
+                iDescente = 395;
                 break;
         }
 
@@ -83,41 +104,6 @@ public class V0 {
             System.out.println("(1)NC (2)40 (3)30_5 (4)30_4 (5)30_3 (6)30_2 (7)30_1 (8)30 (9)15_5 (10)15_4");
             System.out.println("Veuillez saisir le classement de votre adversaire n° " + i);
             iClassementAdversaire = In.readInteger();
-
-
-            switch (iClassementAdversaire) {  //Penser à faire le calcul pour trouver la différence de classement
-                case 1:
-                    sClassement = "NC";
-                    break;
-                case 2:
-                    sClassement = "40";
-                    break;
-                case 3:
-                    sClassement = "30_5";
-                    break;
-                case 4:
-                    sClassement = "30_4";
-                    break;
-                case 5:
-                    sClassement = "30_3";
-                    break;
-                case 6:
-                    sClassement = "30_2";
-                    break;
-                case 7:
-                    sClassement = "30_1";
-                    break;
-                case 8:
-                    sClassement = "30";
-                    break;
-                case 9:
-                    sClassement = "15_5";
-                    break;
-                case 10:
-                    sClassement = "15_4";
-                    break;
-            }
-
 
             iDifferenceClassement = iClassementAdversaire - iClassementJoueur;
 
@@ -149,7 +135,15 @@ public class V0 {
             iPointsTotal = iPointsTotal + iPoints;
             System.out.println("Nombre de points: " + iPoints + "\n");
         } //Sortie de la boucle for
-        iPointsTotal = iPoints + iCapitalDepart;
+        iPointsTotal = iPointsTotal + iCapitalDepart;
         System.out.println("Nombre de points total: " + iPointsTotal);
-    }
+
+    if (iPointsTotal >= iMontee) {
+        System.out.println("Vous montez dans le classement");
+    }else{ if (iPointsTotal <= iDescente) {
+        System.out.println("Vous descendez dans le classement");
+    }else System.out.printf("Vous restez dans votre catégorie");}
+
+    } //public static void main(String[] args)
+
 }
