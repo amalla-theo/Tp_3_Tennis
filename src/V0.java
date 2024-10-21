@@ -1,17 +1,14 @@
 import clavier.In;
 
-import java.lang.runtime.SwitchBootstraps;
-
-public class Maintest {
+public class V0 {
     public static void main(String[] args) {
 
         int iClassementJoueur = 0;
+        int iCapitalDepart = 0;
         int iClassementAdversaire = 0;
         int iDifferenceClassement = 0;
         int iVictoiresPEC = 0;
         int iVictoires = 0;
-        int iVictoiresMax = 0;
-        int iVictoireClassement = 0;
         int iPoints = 0;
         int iPointsTotal = 0;
         String sClassement = "0";
@@ -26,36 +23,47 @@ public class Maintest {
         switch (iClassementJoueur) {
             case 1:
                 sClassement = "NC";
+                iCapitalDepart = 0;
                 break;
             case 2:
                 sClassement = "40";
+                iCapitalDepart = 2;
                 break;
             case 3:
                 sClassement = "30_5";
+                iCapitalDepart = 5;
                 break;
             case 4:
                 sClassement = "30_4";
+                iCapitalDepart = 10;
                 break;
             case 5:
                 sClassement = "30_3";
+                iCapitalDepart = 20;
                 break;
             case 6:
                 sClassement = "30_2";
+                iCapitalDepart = 30;
                 break;
             case 7:
                 sClassement = "30_1";
+                iCapitalDepart = 50;
                 break;
             case 8:
                 sClassement = "30";
+                iCapitalDepart = 80;
                 break;
             case 9:
                 sClassement = "15_5";
+                iCapitalDepart = 120;
                 break;
             case 10:
                 sClassement = "15_4";
+                iCapitalDepart = 160;
                 break;
         }
 
+        System.out.println("Votre capital de départ est de: " + iCapitalDepart);
 
         if (sClassement.equals("NC") || sClassement.equals("40") || sClassement.equals("30_5") || sClassement.equals("30_4")) {
             iVictoiresPEC = 5;
@@ -72,7 +80,7 @@ public class Maintest {
         System.out.println("Le nombre de victoire pris en compte est de: " + iVictoiresPEC + "\n");
 
         for (int i = 1; i <= iVictoiresPEC; i++) {
-            System.out.println("(1)NC (2)40 (3)30_5 (4)30_4 (5)30_3 (6)30_2 (7)30_1 (8)30 (9)15_5 (10)15_4\n");
+            System.out.println("(1)NC (2)40 (3)30_5 (4)30_4 (5)30_3 (6)30_2 (7)30_1 (8)30 (9)15_5 (10)15_4");
             System.out.println("Veuillez saisir le classement de votre adversaire n° " + i);
             iClassementAdversaire = In.readInteger();
 
@@ -113,10 +121,7 @@ public class Maintest {
 
             iDifferenceClassement = iClassementAdversaire - iClassementJoueur;
 
-            switch (iDifferenceClassement) { //remplacer par un if
-                case 2:
-                    iPoints = 150;
-                    break;
+            switch (iDifferenceClassement) { //Le mélange switch/if semble être la meilleure option
                 case 1:
                     iPoints = 100;
                     break;
@@ -132,16 +137,19 @@ public class Maintest {
                 case -3:
                     iPoints = 15;
                     break;
-                case -4:
-                    iPoints = 0;
-                    break;
                 default:
-                    System.out.println("Veuillez saisir un chiffre valide");
+                    if (iDifferenceClassement >= 2) {
+                        iPoints = 150;
+                    }if (iDifferenceClassement <= -4) {
+                    iPoints = 0;
+                }
                     break;
             }
 
             iPointsTotal = iPointsTotal + iPoints;
-        }
+            System.out.println("Nombre de points: " + iPoints + "\n");
+        } //Sortie de la boucle for
+        iPointsTotal = iPoints + iCapitalDepart;
         System.out.println("Nombre de points total: " + iPointsTotal);
     }
 }
