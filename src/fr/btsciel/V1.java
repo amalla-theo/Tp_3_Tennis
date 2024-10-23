@@ -10,7 +10,7 @@ public class V1 {
         int iVictoires = 0, iVictoiresPEC = 0, iBonus = 0;
         int iDefaites = 0, iDefaitesEgal = 0, iDefaitesMoinsUn = 0, iDefaitesMoinsDeux = 0;
         int iPoints = 0, iPointsTotal = 0;
-        int iMontee = 0, iDescente = 0;
+        int iSeuilMontee = 0, iSeuilDescente = 0;
         String sClassement = "0";
 
         System.out.println("(1)NC (2)40 (3)30_5 (4)30_4 (5)30_3 (6)30_2 (7)30_1 (8)30 (9)15_5 (10)15_4");
@@ -24,61 +24,61 @@ public class V1 {
             case 1:
                 sClassement = "NC";
                 iCapitalDepart = 0;
-                iMontee = 50;
+                iSeuilMontee = 50;
                 break;
             case 2:
                 sClassement = "40";
                 iCapitalDepart = 2;
-                iMontee = 80;
-                iDescente = 30;
+                iSeuilMontee = 80;
+                iSeuilDescente = 30;
                 break;
             case 3:
                 sClassement = "30_5";
                 iCapitalDepart = 5;
-                iMontee = 150;
-                iDescente = 50;
+                iSeuilMontee = 150;
+                iSeuilDescente = 50;
                 break;
             case 4:
                 sClassement = "30_4";
                 iCapitalDepart = 10;
-                iMontee = 260;
-                iDescente = 90;
+                iSeuilMontee = 260;
+                iSeuilDescente = 90;
                 break;
             case 5:
                 sClassement = "30_3";
                 iCapitalDepart = 20;
-                iMontee = 340;
-                iDescente = 145;
+                iSeuilMontee = 340;
+                iSeuilDescente = 145;
                 break;
             case 6:
                 sClassement = "30_2";
                 iCapitalDepart = 30;
-                iMontee = 410;
-                iDescente = 205;
+                iSeuilMontee = 410;
+                iSeuilDescente = 205;
                 break;
             case 7:
                 sClassement = "30_1";
                 iCapitalDepart = 50;
-                iMontee = 480;
-                iDescente = 245;
+                iSeuilMontee = 480;
+                iSeuilDescente = 245;
                 break;
             case 8:
                 sClassement = "30";
                 iCapitalDepart = 80;
-                iMontee = 510;
-                iDescente = 290;
+                iSeuilMontee = 510;
+                iSeuilDescente = 290;
                 break;
             case 9:
                 sClassement = "15_5";
                 iCapitalDepart = 120;
-                iMontee = 580;
-                iDescente = 325;
+                iSeuilMontee = 580;
+                iSeuilDescente = 325;
                 break;
             case 10:
                 sClassement = "15_4";
                 iCapitalDepart = 160;
-                iMontee = 660;
-                iDescente = 395;
+                iSeuilMontee = 660;
+                iSeuilDescente = 395;
                 break;
         }
 
@@ -139,6 +139,8 @@ public class V1 {
         }
 
 
+        System.out.println("Nombre de victoire pris en compte: " +iVictoiresPEC);
+        System.out.println("Bonus: " + iBonus);
 
         iVictoiresPEC = iVictoiresPEC + iBonus;
 
@@ -146,7 +148,7 @@ public class V1 {
             iVictoiresPEC = iVictoires;
         }
 
-        System.out.println("Le nombre de victoire pris en compte est de: " + iVictoiresPEC + "\n");
+        System.out.println("Nombre de victoire pris en compte après bonus: " + iVictoiresPEC + "\n");
 
         for (int i = 1; i <= iVictoiresPEC; i++) {
             System.out.println("(1)NC (2)40 (3)30_5 (4)30_4 (5)30_3 (6)30_2 (7)30_1 (8)30 (9)15_5 (10)15_4");
@@ -186,9 +188,9 @@ public class V1 {
         iPointsTotal = iPointsTotal + iCapitalDepart;
         System.out.println("Nombre de points total: " + iPointsTotal);
 
-        if (iPointsTotal >= iMontee) {
+        if (iPointsTotal >= iSeuilMontee) {
             System.out.println("Vous montez dans le classement");
-        }else{ if (iPointsTotal <= iDescente) {
+        }else{ if (iPointsTotal <= iSeuilDescente) {
             System.out.println("Vous descendez dans le classement");
         }else System.out.printf("Vous restez dans votre catégorie");}
 
