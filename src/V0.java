@@ -144,6 +144,6 @@ public class V0 {
         System.out.println("Vous descendez dans le classement");
     }else System.out.printf("Vous restez dans votre catégorie");}
 
-    } //public static void main(String[] args)
+    } // FIN public static void main(String[] args)
 
 }
