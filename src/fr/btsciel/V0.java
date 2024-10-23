@@ -1,3 +1,5 @@
+package fr.btsciel;
+
 import clavier.In;
 
 public class V0 {
